@@ -24,15 +24,15 @@ export default async function fetchProjectsSection({headline, title, link, proje
         <section>
             <div className="container">
                 <div className="row justify-center lg:justify-start">
-                    <div className="md:w-8/12 lg:w-5/12 lg:ml-8 ">
-                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="md:w-8/12 lg:w-5/12 lg:ml-8">
+                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left px-8 md:px-0">
                             <p className="detail">{headline}</p>
                             <h3 className="h1 pt-2">{title}</h3>
                         </div>
                     </div>
                     <div className="md:w-8/12 lg:w-5/12 lg:ml-auto">
                         {link && (
-                            <div className="flex justify-center lg:items-end lg:justify-end h-full pt-green lg:pt-0! lg:pb-[9px] lg:mr-8">
+                            <div className="flex justify-center lg:items-end lg:justify-end h-full pt-green px-8 md:px-0 lg:pt-0! lg:pb-[9px] lg:mr-8">
                                 <LinkComponent
                                     {...link}
                                     className="bg-gray py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]"
