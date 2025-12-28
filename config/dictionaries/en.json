@@ -1,0 +1,11 @@
+{
+    "general": {
+        "home": "Home"
+    },
+    "project": {
+        "team": "Team",
+        "context": "Context",
+        "wip": "In Progress",
+        "visit_case": "Visit Case"
+    }
+}
