@@ -6,6 +6,9 @@ import LangChangeHandler from "@/components/LangChangeHandler";
 import { usePathname } from 'next/navigation'
 import { useI18n } from "@/config/i18n/i18nProvider";
 
+// @ts-ignore
+import Headroom from "headroom.js";
+
 type Header = {
     lang: LocalePage;
     translations: Translation[];
@@ -17,6 +20,16 @@ export default function Header({ lang, translations, headerNavigation }: Header)
     const [activeLabel, setActiveLabel] = useState<string>("");
     const pathname = usePathname();
     const { dict } = useI18n();
+
+    useEffect(() => {
+        const header = document.querySelector("header");
+        var myElement = document.querySelector("header");
+        const options = {
+            offset: 200,
+        }
+        var headroom  = new Headroom(myElement, options);
+        headroom.init();
+    }, []);
 
     useEffect(() => {
         if (headerNavigation) {

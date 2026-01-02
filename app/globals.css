@@ -502,7 +502,15 @@ footer{
 }
 
 @media (min-width: 993px) {
-.link-hover:hover{
-  opacity: 0.5;
+  .link-hover:hover{
+    opacity: 0.5;
+  }
 }
+
+header{
+  transition: transform 0.6s var(--bezier);
 }
+header.headroom--unpinned {
+  transform: translateY(-100%) !important;
+}
+
