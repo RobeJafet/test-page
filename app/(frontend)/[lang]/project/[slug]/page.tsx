@@ -6,6 +6,7 @@ import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import LinkComponent from "@/components/LinkComponent";
 import GalleryItem from "@/components/GalleryItem";
 import { getDictionary } from "@/config/i18n/dictionaries";
+import Button from "@/components/Button";
 
 export async function generateStaticParams() {
     const slugs = await fetchProjectSlugs();
@@ -50,15 +51,10 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
 
                             {projectData.linkProject && !projectData.wip && (
                                 <div className="flex pt-green justify-center">
-                                    <LinkComponent
-                                        {...projectData.linkProject}
-                                        className="bg-gray py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]"
-                                    >
-                                        <span className="dot"></span>
-                                        <p className="detail">
-                                            {projectData.linkProject.label}
-                                        </p>
-                                    </LinkComponent>
+                                    <Button {...projectData.linkProject}
+                                        whiteOrGray="gray"
+                                        dotOrArrow="dot"
+                                    />
                                 </div>
                             )} 
                             {

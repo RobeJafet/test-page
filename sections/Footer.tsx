@@ -40,14 +40,14 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                             <p>Social</p>
                             <div className="flex flex-col items-start mt-4">
                                 {footerSocial?.map((link) => (
-                                    <LinkComponent key={link._key} {...link}>
+                                    <LinkComponent key={link._key} {...link} className="link-hover">
                                         {link.label}
                                     </LinkComponent>
                                 ))}
                             </div>
                             <div className="pt-red mt-auto">
                                 {footerLegal?.[0] && (
-                                    <LinkComponent key={footerLegal[0]._key} {...footerLegal[0]}>
+                                    <LinkComponent key={footerLegal[0]._key} {...footerLegal[0]} className="link-hover">
                                         {footerLegal[0].label}
                                     </LinkComponent>
                                 )}
@@ -63,7 +63,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                             <p>Sitemap</p>
                             <div className="flex flex-col items-start mt-4">
                                 {footerSitemap?.map((link) => (
-                                    <LinkComponent key={link._key} {...link}>
+                                    <LinkComponent key={link._key} {...link} className="link-hover">
                                         {link.label}
                                     </LinkComponent>
                                 ))}
@@ -71,7 +71,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                             </div>
                             <div className="pt-red mt-auto">
                                 {footerLegal?.[1] && (
-                                    <LinkComponent key={footerLegal[1]._key} {...footerLegal[1]}>
+                                    <LinkComponent key={footerLegal[1]._key} {...footerLegal[1]} className="link-hover">
                                         {footerLegal[1].label}
                                     </LinkComponent>
                                 )}
@@ -90,7 +90,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                                         <p>Social</p>
                                         <div className="flex flex-col pt-2 items-center">
                                             {footerSocial?.map((link) => (
-                                                <LinkComponent key={link._key} {...link}>
+                                                <LinkComponent key={link._key} {...link} className="link-hover">
                                                     {link.label}
                                                 </LinkComponent>
                                             ))}
@@ -103,7 +103,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                                         <p>Sitemap</p>
                                         <div className="flex flex-col pt-2 items-center">
                                             {footerSitemap?.map((link) => (
-                                                <LinkComponent key={link._key} {...link}>
+                                                <LinkComponent key={link._key} {...link} className="link-hover">
                                                     {link.label}
                                                 </LinkComponent>
                                             ))}
@@ -120,7 +120,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                                 </div>
                                 <div className="flex justify-center gap-8">
                                     {footerLegal?.map((link) => (
-                                        <LinkComponent key={link._key} {...link}>
+                                        <LinkComponent key={link._key} {...link} className="link-hover">
                                             {link.label}
                                         </LinkComponent>
                                     ))}

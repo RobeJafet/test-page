@@ -1,5 +1,7 @@
 import ImageComponent from "@/components/ImageComponent";
 import LinkComponent from "@/components/LinkComponent";
+import AnimateOnView from "@/components/AnimateOnView";
+import Button from "@/components/Button";
 
 type StudioSection = {
     headline: string;
@@ -14,32 +16,32 @@ export default function StudioSection({headline, title, description, link, image
        <section>
             <div className="container pb-8">
                 <div className="row gap-y-blue ">
-                    <div className="md:w-10/12 lg:w-5/12 lg:mb-8">
+                    <AnimateOnView className="md:w-10/12 lg:w-5/12 lg:mb-8">
                         <div className="flex flex-col px-8 md:pl-8 md:pr-0 lg:mt-8 h-full">
-                            <p className="detail text-center md:text-left">{headline}</p>
-                            <h2 className="h1 pt-2 text-center md:text-left">
-                                {title}
-                            </h2>
-                            <p className="mt-auto pt-green ">
+                            <div className="flex flex-col animate">
+                                <p className="detail text-center md:text-left">{headline}</p>
+                                <h2 className="h1 pt-2 text-center md:text-left">
+                                    {title}
+                                </h2>
+                            </div>
+                            <p className="mt-auto pt-green animate">
                                 {description}
                             </p>
                             {
                                 link && (
-                                    <div className="flex mt-orange  justify-center md:justify-start">
-                                        <LinkComponent {...link} className="bg-gray py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]">
-                                            <span className="dot"></span>
-                                            <p className="detail">
-                                                {link.label}
-                                            </p>
-                                        </LinkComponent>
+                                    <div className="flex mt-orange  justify-center md:justify-start animate">
+                                       <Button {...link}
+                                            whiteOrGray="gray"
+                                            dotOrArrow="dot"
+                                        />
                                     </div>  
                                 )
                             }
                         </div>
-                    </div>
-                    <div className="w-6/12 lg:w-3/12 ml-auto mt-8">
+                    </AnimateOnView>
+                    <AnimateOnView className="w-6/12 lg:w-3/12 ml-auto mt-8 ">
                         {images[0].asset && (
-                            <div className="pl-8">
+                            <div className="pl-8 ">
                                 <div className="relative">
                                     <img className="absolute top-0 left-0 -translate-full w-8 h-8" src="/threeDots.svg" alt="Three Dots" />
                                     <img className="absolute top-full left-0  -translate-x-full rotate-270 w-8 h-8" src="/threeDots.svg" alt="Three Dots" />
@@ -51,10 +53,10 @@ export default function StudioSection({headline, title, description, link, image
                                 </div>
                             </div>
                         )}
-                    </div>
-                    <div className="w-6/12 lg:w-3/12 lg:mr-8 mt-8">
+                    </AnimateOnView>
+                    <AnimateOnView className="w-6/12 lg:w-3/12 lg:mr-8 mt-8 animate-delay-150">
                         {images[1].asset && (
-                            <div className="pr-8 lg:pr-0">
+                            <div className="pr-8 lg:pr-0  ">
                                 <div className="relative">
                                     <ImageComponent 
                                         image={images[1]} 
@@ -67,7 +69,7 @@ export default function StudioSection({headline, title, description, link, image
                                 </div>
                             </div>  
                         )}
-                    </div>
+                    </AnimateOnView>
                 </div>
             </div>
        </section>

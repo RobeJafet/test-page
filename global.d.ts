@@ -50,10 +50,27 @@ type Link = {
   label?: string;
   page?: InternalLink;
   inNewTab?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  scramble?: boolean;
   onClickAction?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 };
+
+type Button = {
+  _type?: "link";
+  _key?: string;
+  linkType: string;
+  href?: string;
+  label?: string;
+  page?: InternalLink;
+  inNewTab?: boolean;
+  className?: string;
+  scramble?: boolean;
+  label?: string;
+  onClickAction?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  dotOrArrow?: "dot" | "arrow";
+  whiteOrGray?: "white" | "gray";
+}
 
 type SeoMetadata = {
   metaTitle: string;

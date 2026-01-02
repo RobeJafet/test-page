@@ -1,4 +1,5 @@
 import ImageComponent from "@/components/ImageComponent";
+import AnimateOnView from "@/components/AnimateOnView";
 
 type ApproachSection = {
     headline: string;
@@ -15,9 +16,9 @@ export default function ApproachSection({headline, title, description, approchIt
     return (
         <section>
             <div className="container">
-                <div className="row">
+                <AnimateOnView className="row">
                     <div className="md:w-8/12 lg:w-6/12">
-                        <div className="row">
+                        <div className="row animate">
                             <div className="lg:w-10/12 lg:ml-8">
                                 <div className="px-8 md:pr-0 lg:pl-0 text-center md:text-start">
                                     <p className="detail">{headline}</p>
@@ -26,16 +27,16 @@ export default function ApproachSection({headline, title, description, approchIt
                             </div>
                         </div>
                     </div>
-                    <div className="md:w-10/12 lg:w-5/12 lg:ml-auto pt-green lg:pt-[37px]!">
+                    <div className="md:w-10/12 lg:w-5/12 lg:ml-auto pt-green lg:pt-[37px]! animate">
                         <div className="px-8 md:pr-0 lg:pl-0">
                             <p>{description}</p>
                         </div>
                     </div>
                     <div className="w-1/12 hidden lg:block"></div>
-                </div>
-                <div className="row pt-8 mt-blue gap-y-8 pb-8">
+                </AnimateOnView>
+                <AnimateOnView className="row pt-8 mt-blue gap-y-8 pb-8">
                     {approchItem[0] && (
-                        <div className="w-full md:w-6/12 lg:w-3/12 lg:ml-8">
+                        <div className="w-full md:w-6/12 lg:w-3/12 lg:ml-8 animate">
                             <div className="aspect-square lg:aspect-auto mx-8 md:mr-0 lg:mx-0 relative">
                                 <div className="absolute left-1/2 top-8 tag -translate-x-1/2 z-1">
                                     <span className="detail">01</span>
@@ -68,7 +69,7 @@ export default function ApproachSection({headline, title, description, approchIt
                         </div>
                     )}
                     {approchItem[1] && (
-                        <div className="w-full md:w-6/12 lg:w-auto lg:flex-1">
+                        <div className="w-full md:w-6/12 lg:w-auto lg:flex-1 animate">
                             <div className="aspect-square lg:aspect-auto mx-8 md:ml-0 lg:mx-0 relative">
                                 <div className="absolute left-1/2 top-8 tag -translate-x-1/2 z-1">
                                     <span className="detail">02</span>
@@ -96,7 +97,7 @@ export default function ApproachSection({headline, title, description, approchIt
                     )}
                     {approchItem[2] && (
                         <>
-                            <div className="w-full md:w-6/12 lg:w-3/12">
+                            <div className="w-full md:w-6/12 lg:w-3/12 animate">
                                 <div className="aspect-square lg:aspect-auto mx-8 md:mr-0 lg:mx-0 relative">
                                     <div className="absolute left-1/2 top-8 tag -translate-x-1/2 z-1">
                                         <span className="detail">03</span>
@@ -124,7 +125,7 @@ export default function ApproachSection({headline, title, description, approchIt
                     {approchItem[3] && (
                         <>
                             <div className=" md:w-6/12 lg:hidden hidden md:block"></div>
-                            <div className="w-full md:w-6/12 lg:w-auto flex-1 lg:mr-8">
+                            <div className="w-full md:w-6/12 lg:w-auto flex-1 lg:mr-8 animate">
                                 <div className="aspect-square lg:aspect-auto mx-8 md:ml-0 lg:mx-0 relative">
                                     <div className="absolute left-1/2 top-8 tag -translate-x-1/2 z-1">
                                         <span className="detail">04</span>
@@ -156,7 +157,7 @@ export default function ApproachSection({headline, title, description, approchIt
                         </>
                         
                     )}
-                </div>
+                </AnimateOnView>
             </div>
         </section>
     );

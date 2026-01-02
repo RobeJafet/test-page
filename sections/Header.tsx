@@ -46,7 +46,7 @@ export default function Header({ lang, translations, headerNavigation }: Header)
                     <div className="w-full bg-gray py-4 rounded-2xl lg:rounded-3xl relative min-h-20">
                         <div className="flex items-center justify-between">
                             <div className="block">
-                                <div className="pl-6 flex items-start">
+                                <div className="pl-6 lg:pl-8 flex items-start">
                                     <LinkComponent
                                         linkType={"page"}
                                         page={{
@@ -109,7 +109,7 @@ export default function Header({ lang, translations, headerNavigation }: Header)
                                 </div>
                             </div>
                             <div className="hidden md:block">
-                                <div className="flex justify-end pr-6">
+                                <div className="flex justify-end pr-6 lg:pr-8">
                                     {
                                         <LangChangeHandler
                                             lang={lang}
@@ -136,11 +136,11 @@ export default function Header({ lang, translations, headerNavigation }: Header)
                                                 <div className="p-8">
                                                     <div className="grid grid-cols-2 gap-8">
                                                         <div></div>
-                                                        <div className="flex flex-col relative">
+                                                        <div className="flex flex-col relative items-start">
                                                             {headerNavigation?.map(
                                                                 (link) => (
                                                                     <LinkComponent
-                                                                        className="detail"
+                                                                        className="detail link-hover"
                                                                         key={
                                                                             link._key
                                                                         }

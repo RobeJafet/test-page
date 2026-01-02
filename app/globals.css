@@ -442,3 +442,67 @@ footer{
   background: var(--color-white) !important;
   margin: 0 !important;
 }
+
+.animate {
+  opacity: 0;
+}
+
+.animate.in-view {
+  animation: fadeIn 0.8s var(--bezier) forwards;
+}
+
+.animate-container{
+  opacity: 0;
+}
+.animate-container.in-view{
+  animation: fadeIn 0.8s var(--bezier) forwards;
+}
+
+
+.hover-rounded{
+  border-radius: 0px;
+  transition: border-radius 0.7s var(--bezier);
+}
+@media (min-width: 993px) {
+  .hover-rounded:hover{
+    border-radius: 15px;
+  }
+}
+
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-delay-150{
+  animation-delay: 0.15s !important;
+}
+.animate-delay-500{
+  animation-delay: 0.5s !important;
+}
+.animate-delay-1000{
+  animation-delay: 1s !important;
+}
+
+.transition-link{
+  transition: opacity 0.4s var(--bezier);
+}
+
+.transition-border{
+  transition: border-radius 0.4s var(--bezier);
+}
+
+.link-hover{
+  transition: opacity 0.3s var(--bezier);
+}
+
+@media (min-width: 993px) {
+.link-hover:hover{
+  opacity: 0.5;
+}
+}

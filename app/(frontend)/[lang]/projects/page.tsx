@@ -5,7 +5,6 @@ import { generatePageMetadata } from "@/lib/generateMetadata";
 import { fetchProjects } from "@/sanity/services/fetchProjects";
 import ThumbnailProject from "@/components/ThumbnailProject";
 
-
 export async function generateStaticParams() {
     return locales.map((locale) => ({ lang: locale }));
 }

@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { Route } from "next";
-
 
 export default function LinkComponent({
     href,
@@ -13,12 +12,15 @@ export default function LinkComponent({
     children,
     inNewTab = false,
     className = "",
-    onClickAction
+    onClickAction,
 }: Link) {
     const pathname = usePathname();
     const router = useRouter();
     const [linkPath, setLinkPath] = useState<string>("");
+    const linkRef = useRef<HTMLAnchorElement>(null);
     const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+   
 
     async function pageTransition(hrefString: string) {
         // const overlay = document.getElementById("page-loader");
@@ -32,6 +34,8 @@ export default function LinkComponent({
         // await sleep(300); // Pause for 300ms
         router.push(hrefString as Route);
     }
+
+    
 
 
     useEffect(() => {
@@ -82,13 +86,19 @@ export default function LinkComponent({
        
     };
 
+    
+ 
+
+
     if (linkType === "href") {
         return (
             <a
+                ref={linkRef}
                 href={href}
                 target={inNewTab ? "_blank" : "_self"}
                 rel={inNewTab ? "noopener noreferrer" : undefined}
-                className={`${className}`}
+                className={`${className} lg:whitespace-pre-wrap`}
+                
             >
                 {children}
             </a>
@@ -96,13 +106,15 @@ export default function LinkComponent({
     } else if (linkType === "page") {
         return (
             <Link
+                ref={linkRef}
                 href={{
                     pathname: linkPath
                 }}
-                className={`${className}`}
+                className={`${className} lg:whitespace-pre-wrap`}
                 onClick={(e) => handleClick(e, linkPath)}
                 target={inNewTab ? "_blank" : "_self"}
                 rel={inNewTab ? "noopener noreferrer" : undefined}
+               
             >
                 {children}
             </Link>

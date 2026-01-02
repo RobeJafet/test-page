@@ -1,8 +1,7 @@
-import ImageComponent from "@/components/ImageComponent";
-import LinkComponent from "@/components/LinkComponent";
 
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import { PortableTextBlock } from "next-sanity";
+import AnimateOnView from "@/components/AnimateOnView";
 
 type LegalSection = {
     title?: string;
@@ -24,16 +23,16 @@ export default function LegalSection({ title, blockContent, updatedAt }: LegalSe
         <section>
             <div className="container">
                 <div className="row justify-center mt-yellow">
-                    <div className="w-10/12 lg:w-6/12 text-center">
-                        <p className="detail">Updated at {formatDate(updatedAt)}</p>
-                        <h2 className="h1 pt-2">{title}</h2>
-                        <div className="text-start content-legal mt-blue">
+                    <AnimateOnView className="w-10/12 lg:w-6/12 text-center">
+                        <p className="detail animate">Updated at {formatDate(updatedAt)}</p>
+                        <h2 className="h1 pt-2 animate">{title}</h2>
+                        <div className="text-start content-legal mt-blue animate">
                             { blockContent && 
                                 <PortableTextRenderer value={blockContent} />
                             }
                         </div>
                        
-                    </div>
+                    </AnimateOnView>
                 </div>
             </div>
         </section>
