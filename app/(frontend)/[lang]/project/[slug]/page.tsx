@@ -3,10 +3,11 @@ import { fetchProjectSlugs } from "@/sanity/services/fetchPage";
 import { notFound } from 'next/navigation';
 import { generatePageMetadata } from "@/lib/generateMetadata";
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import LinkComponent from "@/components/LinkComponent";
 import GalleryItem from "@/components/GalleryItem";
 import { getDictionary } from "@/config/i18n/dictionaries";
 import Button from "@/components/Button";
+import { PageTransitionLoader } from "@/components/PageTransitionLoader";
+import AnimateOnView from "@/components/AnimateOnView";
 
 export async function generateStaticParams() {
     const slugs = await fetchProjectSlugs();
@@ -40,17 +41,20 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
 
     return (
         <main>
+            <PageTransitionLoader />
             <div className="container">
                 <div className="row justify-center mt-yellow">
                     <div className="w-full md:w-10/12 lg:w-7/12 text-center">
-                        <div className="px-8 md:px-0">
-                            <h1 className="detail">{projectData.title}</h1>
-                            {projectData.excerpt && (
-                                <p className="h1">{projectData.excerpt}</p>
-                            )}
-
+                        <AnimateOnView className="px-8 md:px-0">
+                            <div className="flex flex-col animate">
+                                <h1 className="detail">{projectData.title}</h1>
+                                {projectData.excerpt && (
+                                    <p className="h1">{projectData.excerpt}</p>
+                                )}
+                            </div>
+                            
                             {projectData.linkProject && !projectData.wip && (
-                                <div className="flex pt-green justify-center">
+                                <div className="flex pt-green justify-center animate">
                                     <Button {...projectData.linkProject}
                                         whiteOrGray="gray"
                                         dotOrArrow="dot"
@@ -59,7 +63,7 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
                             )} 
                             {
                                 projectData.wip && (
-                                    <div className="flex pt-green justify-center">
+                                    <div className="flex pt-green justify-center animate">
                                         <div className="bg-gray py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]">
                                             <p className="detail opacity-50">
                                                 {dict.project.wip}
@@ -68,12 +72,12 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
                                     </div>
                                 )
                             }
-                        </div>
+                        </AnimateOnView>
                     </div>
                 </div>
                 {projectData.galleryItems &&
                     projectData.galleryItems.length > 0 && (
-                    <div className="row justify-center pt-blue pb-8 ">
+                    <AnimateOnView className="row justify-center pt-blue pb-8 ">
                         <div className="w-full lg:w-10/12">
                             <div className="flex flex-col md:grid grid-cols-12 lg:grid-cols-10 gap-8">
                                 {projectData.galleryItems &&
@@ -168,7 +172,7 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
                                     )}
                             </div>
                         </div>
-                    </div>
+                    </AnimateOnView>
                 )}
                 {(projectData.team || projectData.context) && (
                     <div className="row pt-blue justify-center">

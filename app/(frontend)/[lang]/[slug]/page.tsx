@@ -3,6 +3,7 @@ import { generatePageMetadata } from "@/lib/generateMetadata";
 import type { Metadata } from "next"
 import { notFound } from "next/navigation";
 import Sections from "@/components/Sections";
+import { PageTransitionLoader } from "@/components/PageTransitionLoader";
 
 export async function generateStaticParams() {
     const slugs = await fetchPageSlugs();
@@ -39,6 +40,7 @@ export default async function Page({
             { pageData.sections &&
                 <Sections sections={pageData.sections} />
             }
+            <PageTransitionLoader />
         </main>
     );
 }

@@ -23,15 +23,15 @@ export default function LinkComponent({
    
 
     async function pageTransition(hrefString: string) {
-        // const overlay = document.getElementById("page-loader");
-        // const body = document.body;
-        // const header = document.querySelector("header");
+        const overlay = document.getElementById("page-loader");
+        const body = document.body;
+        const header = document.querySelector("header");
 
-        // overlay?.classList.add("visible");
-        // header?.classList.add("no-touch");
-        // body.classList.add("loading");
+        overlay?.classList.add("visible");
+        header?.classList.add("no-touch");
+        body.classList.add("loading");
 
-        // await sleep(300); // Pause for 300ms
+        await sleep(300); 
         router.push(hrefString as Route);
     }
 

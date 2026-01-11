@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import FirstVisitManager from "@/components/FirstVisitManager";
 
 const SuisseIntl = localFont({
     src: "../fonts/SuisseIntlMono-Regular.woff2",
@@ -13,11 +14,15 @@ const FormaDJR = localFont({
     variable: "--font-forma-djr",
 });
 
+
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+
+
+
     return (
         <html lang="en">
             <body
@@ -26,12 +31,15 @@ export default function RootLayout({
                     ${FormaDJR.variable} 
                     antialiased 
                     flex 
-                    flex-col`
+                    flex-col
+                    first-visit
+                    `
                 }
             >
                 {children}
                 <SpeedInsights />
                 <Analytics />
+                <FirstVisitManager isFirstVisit={true} />
             </body>
         </html>
     );

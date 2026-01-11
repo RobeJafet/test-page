@@ -23,7 +23,6 @@ export default function AnimateOnView({ children, className }: AnimatedOnViewPro
         return;
     }
 
-
     useEffect(() => {
         const element = animateRef.current;
         if (!element) return;
@@ -32,7 +31,13 @@ export default function AnimateOnView({ children, className }: AnimatedOnViewPro
         if (numberOfElements > 0) {
             element.classList.remove('animate-container');
         }
-        
+        let timeOutObserver;
+        if (!sessionStorage.getItem("first_visit_cookie_set")) {
+            timeOutObserver = 2000;
+        } else {
+            timeOutObserver = 150;
+        }
+         
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -72,9 +77,9 @@ export default function AnimateOnView({ children, className }: AnimatedOnViewPro
             }
         );
 
-        observer.observe(element);
-
-       
+        setTimeout(() => {
+            observer.observe(element);
+        }, timeOutObserver);
 
         return () => {
             if (element) {

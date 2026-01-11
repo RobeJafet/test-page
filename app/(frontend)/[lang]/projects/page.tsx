@@ -4,6 +4,7 @@ import { fetchProjectsPageMetadata } from "@/sanity/services/fetchPage";
 import { generatePageMetadata } from "@/lib/generateMetadata";
 import { fetchProjects } from "@/sanity/services/fetchProjects";
 import ThumbnailProject from "@/components/ThumbnailProject";
+import { PageTransitionLoader } from "@/components/PageTransitionLoader";
 
 export async function generateStaticParams() {
     return locales.map((locale) => ({ lang: locale }));
@@ -29,6 +30,7 @@ export default async function ProjectsPage({params} : {params: Promise<{ lang: L
     const projects = await fetchProjects(lang, 'date desc', 0, 10);
     return (
         <main>
+            <PageTransitionLoader />
             <section>
                 <div className="container pt-yellow ">
                     <div className="relative pb-8">

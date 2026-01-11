@@ -3,6 +3,7 @@ import { locales } from "@/config/i18n/i18nConfig";
 import { generatePageMetadata } from "@/lib/generateMetadata";
 import type { Metadata } from "next";
 import Sections from "@/components/Sections";
+import {PageTransitionLoader} from "@/components/PageTransitionLoader";
 
 export async function generateStaticParams() {
     return locales.map((locale) => ({ lang: locale }));
@@ -35,6 +36,7 @@ export default async function Home({
             { homeData.sections &&
                 <Sections sections={homeData.sections} />
             }
+            <PageTransitionLoader />
         </main>
     );
 }

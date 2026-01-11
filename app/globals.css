@@ -26,6 +26,7 @@
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
   --bezier: cubic-bezier(0.19, 1, 0.22, 1);
+  --bezier--2: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -448,20 +449,20 @@ footer{
 }
 
 .animate.in-view {
-  animation: fadeIn 0.8s var(--bezier) forwards;
+  animation: fadeIn 0.8s var(--bezier--2) forwards;
 }
 
 .animate-container{
   opacity: 0;
 }
 .animate-container.in-view{
-  animation: fadeIn 0.8s var(--bezier) forwards;
+  animation: fadeIn 0.8s var(--bezier--2) forwards;
 }
 
 
 .hover-rounded{
   border-radius: 0px;
-  transition: border-radius 0.7s var(--bezier);
+  transition: border-radius 1s var(--bezier);
 }
 @media (min-width: 993px) {
   .hover-rounded:hover{
@@ -494,7 +495,7 @@ footer{
 }
 
 .transition-border{
-  transition: border-radius 0.4s var(--bezier);
+  transition: border-radius 1s var(--bezier);
 }
 
 .link-hover{
@@ -514,3 +515,37 @@ header.headroom--unpinned {
   transform: translateY(-100%) !important;
 }
 
+#page-loader.visible {
+opacity: 1;
+cursor: wait;
+pointer-events: all;
+}
+
+#page-loader {
+opacity: 0;
+pointer-events: none;
+}
+
+body.loading{
+  cursor: wait;
+}
+
+body.loading *{
+  pointer-events: none;
+}
+
+body.first-visit{
+  overflow: hidden;
+}
+
+body.first-visit header{
+  opacity: 0;
+}
+
+body.first-visit .hero-text{
+  opacity: 0 ;
+}
+
+[data-hero-dots]{
+  opacity: 0;
+}

@@ -3,6 +3,7 @@ import { I18nProvider } from "@/config/i18n/i18nProvider";
 import { fetchSettings, fetchTranslations } from "@/sanity/services/fetchSetting";
 import Header from "@/sections/Header";
 import Footer from "@/sections/Footer";
+import { PageTransitionHandler } from "@/components/PageTransitionHandler";
 
 
 export default async function LangLayout({
@@ -19,6 +20,7 @@ export default async function LangLayout({
 
     return (
         <I18nProvider lang={lang as LocalePage} dict={dict}>
+            <PageTransitionHandler />
             <Header
                 lang={lang as LocalePage}
                 translations={translations}
