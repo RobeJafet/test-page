@@ -56,7 +56,6 @@ export default async function fetchProjectsSection({headline, title, link, proje
                                                 language: project.language,
                                             }}
                                             className="
-                                            hover-rounded 
                                             overflow-hidden
                                             flex
                                             "

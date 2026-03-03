@@ -90,10 +90,11 @@ export default function Button(props: Button) {
 
     return (
         <div ref={linkRef} className="flex" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-             <LinkComponent {...props} 
-            className={`${gray ? 'bg-gray' : 'bg-white'} py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]`} 
             
-        >
+             <LinkComponent {...props} 
+                className={`${gray ? 'bg-gray' : 'bg-white'} py-[8px] px-[12px] md:px-6 flex items-center gap-4 rounded-[50px]`} 
+                
+            >
             {dot ? 
                 <span className="dot"></span> : 
                 <svg

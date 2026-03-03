@@ -8,6 +8,8 @@ type Settings = {
     footerSitemap: Link[];
     footerSocial: Link[];
     footerLegal: Link[];
+    mail: string;
+    contactTitle: string;
 }
 
 

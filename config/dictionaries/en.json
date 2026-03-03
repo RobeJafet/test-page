@@ -1,11 +1,28 @@
 {
     "general": {
-        "home": "Home"
+        "home": "Home",
+        "footerContact": "Contact"
     },
     "project": {
         "team": "Team",
         "context": "Context",
         "wip": "In Progress",
         "visit_case": "Visit Case"
+    },
+    "contact": {
+        "title": "Contact",
+        "name": "Full name *",
+        "email": "Email *",
+        "company": "Company",
+        "message": "Tell us about your project *",
+        "description": "Fill the form or send us an email to: ",
+        "success": "Your message has been sent successfully.",
+        "no_send": "There was an error sending your message. Please try again.",
+        "sending": "Sending your message...",
+        "errors": {
+            "empty_field": "This field is required",
+            "invalid_email": "Invalid email",
+            "send_error": "There was an error sending your message. Please try again."
+        }
     }
 }

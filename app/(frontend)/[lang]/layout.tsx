@@ -25,13 +25,16 @@ export default async function LangLayout({
                 lang={lang as LocalePage}
                 translations={translations}
                 headerNavigation={settings.headerNavigation}
+                mail={settings.mail}
+                contactTitle={settings.contactTitle}
             />
-                
             <>{children}</>
             <Footer 
+                lang={lang as LocalePage}
                 footerSitemap={settings.footerSitemap} 
                 footerSocial={settings.footerSocial} 
                 footerLegal={settings.footerLegal} 
+                mail={settings.mail}
             />
         </I18nProvider>
     );

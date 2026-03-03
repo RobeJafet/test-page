@@ -33,7 +33,7 @@ export default function GalleryItem({item, sizes, priority = false}: {item: Imag
                     }
                 });
             },
-            { threshold: 0, rootMargin: '0px 0px 100px 0px ' }
+            { threshold: 0, rootMargin: '0px 0px 50px 0px ' }
         );
 
         observer.observe(swiperRef.current);
@@ -78,7 +78,9 @@ export default function GalleryItem({item, sizes, priority = false}: {item: Imag
                 >
                     {item.map((img) => (
                         <SwiperSlide key={img._key} className="h-auto!">
-                            <ImageComponent image={img} sizes={sizes} optionalAlt="Image Gallery" classContainer="h-full!" classImg="h-full! object-cover" />
+                            {isInView && (
+                                <ImageComponent image={img} sizes={sizes} optionalAlt="Image Gallery" classContainer="h-full!" classImg="h-full! object-cover" />
+                            )}
                         </SwiperSlide>
                     ))}
                 </Swiper>

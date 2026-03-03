@@ -10,23 +10,18 @@ export default function FirstVisitManager({
 }: {
     isFirstVisit: boolean;
 }) {
-
     const pathname = usePathname();
     gsap.registerPlugin(CustomEase);
-
     CustomEase.create("custom", "0.4, 0, 0.2, 1");
-
     useEffect(() => {
         const heroDots = document.querySelectorAll("[data-hero-dots]");
         const header = document.querySelector("header");
         const text = document.querySelectorAll(".hero-text");
         const body = document.querySelector("body");
-
         if (isFirstVisit) {
             if (sessionStorage.getItem("first_visit_cookie_set")){
                 body?.classList.remove("first-visit");
             }
-
             if (pathname === "/en" || pathname === "/es") {
                 const onAlmostComplete = () => {
                     body?.classList.remove("first-visit");

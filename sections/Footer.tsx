@@ -1,14 +1,19 @@
 
 import LinkComponent from "@/components/LinkComponent";
+import { getDictionary } from "@/config/i18n/dictionaries";
 
 type Footer = {
    footerSitemap: Link[];
     footerSocial: Link[];
     footerLegal: Link[];
-
+    contactTitle?: string;
+    mail?: string;
+    lang: LocalePage;
 };
 
-export default function Footer({ footerSitemap, footerSocial, footerLegal }: Footer) {
+export default async function Footer({ footerSitemap, footerSocial, footerLegal, mail, lang }: Footer) {
+    const dict = await getDictionary(lang as LocalePage);
+
     return (
         <footer>
             <div className="container ">
@@ -37,17 +42,19 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                         </div>
                         <div className="w-1/12 hidden lg:block"></div>
                         <div className="w-3/12 detail hidden md:flex flex-col">
-                            <p>Social</p>
+                            <p>{dict?.general.footerContact}</p>
                             <div className="flex flex-col items-start mt-4">
                                 {footerSocial?.map((link) => (
-                                    <LinkComponent key={link._key} {...link} className="link-hover">
+                                    <LinkComponent key={link._key} {...link} className="link-hover detail">
                                         {link.label}
                                     </LinkComponent>
                                 ))}
+                                <a href={"mailto:" + mail} className="link-hover detail">{dict?.general?.footerContact}</a>
+
                             </div>
                             <div className="pt-red mt-auto">
                                 {footerLegal?.[0] && (
-                                    <LinkComponent key={footerLegal[0]._key} {...footerLegal[0]} className="link-hover">
+                                    <LinkComponent key={footerLegal[0]._key} {...footerLegal[0]} className="link-hover detail">
                                         {footerLegal[0].label}
                                     </LinkComponent>
                                 )}
@@ -87,13 +94,14 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                             <div className="px-16">
                                 <div className="grid grid-cols-2 gap-8">
                                     <div className="text-center py-8 mt-yellow relative">
-                                        <p>Social</p>
+                                        <p>{dict?.general?.footerContact}</p>
                                         <div className="flex flex-col pt-2 items-center">
                                             {footerSocial?.map((link) => (
                                                 <LinkComponent key={link._key} {...link} className="link-hover">
                                                     {link.label}
                                                 </LinkComponent>
                                             ))}
+                                            <a href={"mailto:" + mail} className="link-hover detail">{dict?.general?.footerContact}</a>
                                         </div>
                                         <img className="w-8 h-8 absolute top-0 left-0 -translate-x-full" src="/threeDots.svg" alt="Three dots" />
                                         <img className="w-8 h-8 rotate-270 absolute bottom-0 -translate-x-full" src="/threeDots.svg" alt="Three dots" />
@@ -103,7 +111,7 @@ export default function Footer({ footerSitemap, footerSocial, footerLegal }: Foo
                                         <p>Sitemap</p>
                                         <div className="flex flex-col pt-2 items-center">
                                             {footerSitemap?.map((link) => (
-                                                <LinkComponent key={link._key} {...link} className="link-hover">
+                                                <LinkComponent key={link._key} {...link} className="link-hover detail">
                                                     {link.label}
                                                 </LinkComponent>
                                             ))}

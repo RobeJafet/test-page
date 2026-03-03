@@ -42,7 +42,8 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
     return (
         <main>
             <PageTransitionLoader />
-            <div className="container">
+            <section className="pb-red">
+                <div className="container ">
                 <div className="row justify-center mt-yellow">
                     <div className="w-full md:w-10/12 lg:w-7/12 text-center">
                         <AnimateOnView className="px-8 md:px-0">
@@ -315,6 +316,8 @@ export default async function Project({params} : {params: Promise<{ lang: Locale
                         </div>
                     )}
             </div>
+            </section>
+            
         </main>
     );
 }

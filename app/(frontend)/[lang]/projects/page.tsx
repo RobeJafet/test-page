@@ -32,7 +32,7 @@ export default async function ProjectsPage({params} : {params: Promise<{ lang: L
         <main>
             <PageTransitionLoader />
             <section>
-                <div className="container pt-yellow ">
+                <div className="container pt-yellow pb-red">
                     <div className="relative pb-8">
                         {projects?.map((project, index) => (
                             <ThumbnailProject key={project._id} project={project} index={index} projectsLength={projects.length} />

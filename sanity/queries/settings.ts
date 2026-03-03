@@ -14,6 +14,8 @@ export const SETTINGS = groq`
     },
     footerLegal[]{
         ${LINK}
-    }
+    },
+    mail,
+    contactTitle
 }
 `

@@ -70,6 +70,16 @@ export default defineType({
             group: 'footer',
         }),
         defineField({
+            name: 'mail',
+            title: 'Mail',
+            type: 'string',
+        }),
+        defineField({
+            name: 'contactTitle',
+            title: 'Contact Title',
+            type: 'string',
+        }),
+        defineField({
             name: 'footerLegal',
             title: 'Footer Legal',
             type: 'array',

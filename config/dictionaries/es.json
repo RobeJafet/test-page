@@ -1,11 +1,29 @@
 {
     "general": {
-        "home": "Inicio"
+        "home": "Inicio",
+        "footerContact": "Contacto"
     },
     "project": {
         "team": "Equipo",
         "context": "Contexto",
         "wip": "En Progreso",
         "visit_case": "Visitar Caso"
+    },
+    "contact": {
+        "title": "Contacto",
+        "name": "Nombre completo *",
+        "email": "Email *",
+        "company": "Empresa",
+        "message": "Cuéntanos sobre tu proyecto *",
+        "description": "Completa el formulario o envíanos un email a: ",
+        "success": "Tu mensaje ha sido enviado exitosamente.",
+        "no_send": "No se pudo enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        "sending": "Enviando tu mensaje...",
+        
+        "errors": {
+            "empty_field": "Este campo es requerido",
+            "invalid_email": "Correo inválido",
+            "send_error": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
+        }
     }
 }
